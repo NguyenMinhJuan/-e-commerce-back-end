@@ -12,10 +12,8 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+    @Enumerated(EnumType.STRING)
     private RoleName name;
-    @ManyToOne
-    @JoinColumn(name = "User_id")
-    private User user;
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
 }
