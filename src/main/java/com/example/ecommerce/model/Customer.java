@@ -18,4 +18,8 @@ public class Customer {
     private String address;
     @OneToMany(mappedBy = "customer")
     private List<CustomerOrder> customerOrders;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
