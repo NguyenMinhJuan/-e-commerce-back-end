@@ -8,7 +8,7 @@ import lombok.Data;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    private Long id;
     private String name;
     private int quantity;
     private String description;

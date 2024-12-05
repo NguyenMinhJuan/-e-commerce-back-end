@@ -7,8 +7,8 @@ import lombok.Data;
 @Data
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private int age;
     private String phone;
