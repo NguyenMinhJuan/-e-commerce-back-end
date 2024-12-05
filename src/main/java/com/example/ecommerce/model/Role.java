@@ -9,8 +9,8 @@ import java.util.List;
 @Data
 public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String roleName;
     @ManyToOne
     @JoinColumn(name = "User_id")
