@@ -8,8 +8,8 @@ import lombok.Data;
 @Data
 public class CustomerOrder {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
     @ManyToOne

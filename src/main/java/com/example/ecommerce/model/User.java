@@ -3,19 +3,23 @@ package com.example.ecommerce.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
     private String username;
     private String password;
     private String email;
-    @OneToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
-    @OneToOne
-    @JoinColumn(name = "employee_id")
-    private Employee employee;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private List<Role> roles;
 }

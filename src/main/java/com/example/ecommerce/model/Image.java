@@ -7,8 +7,8 @@ import lombok.Data;
 @Data
 public class Image {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
