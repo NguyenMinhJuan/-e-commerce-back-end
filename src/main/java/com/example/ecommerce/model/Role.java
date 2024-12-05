@@ -4,6 +4,8 @@ import com.example.ecommerce.enums.RoleName;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 public class Role {
@@ -14,4 +16,6 @@ public class Role {
     @ManyToOne
     @JoinColumn(name = "User_id")
     private User user;
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users;
 }
