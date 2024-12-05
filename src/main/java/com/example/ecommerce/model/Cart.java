@@ -7,8 +7,8 @@ import lombok.Data;
 @Data
 public class Cart {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @OneToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
