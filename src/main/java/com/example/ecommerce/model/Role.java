@@ -1,6 +1,5 @@
 package com.example.ecommerce.model;
 
-import com.example.ecommerce.enums.RoleName;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -10,10 +9,9 @@ import java.util.List;
 @Data
 public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
-    @Enumerated(EnumType.STRING)
-    private RoleName name;
-    @ManyToMany(mappedBy = "roles")
-    private List<User> users;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String roleName;
+//    @ManyToMany(mappedBy = "roles")
+//    private List<User> users;
 }
