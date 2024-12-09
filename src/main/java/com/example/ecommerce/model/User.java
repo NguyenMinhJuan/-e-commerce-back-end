@@ -2,9 +2,7 @@ package com.example.ecommerce.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Data
@@ -15,6 +13,7 @@ public class User {
     private String username;
     private String password;
     private String email;
+
     @ManyToMany
     @JoinTable(
             name = "user_role",
