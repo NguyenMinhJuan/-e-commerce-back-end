@@ -1,7 +1,7 @@
 package com.example.ecommerce.service.product;
 
 import com.example.ecommerce.model.Product;
-import com.example.ecommerce.service.IGenerateService;
+import com.example.ecommerce.service.IGenericService;
 
-public interface IProductService extends IGenerateService<Product> {
+public interface IProductService extends IGenericService<Product> {
 }
