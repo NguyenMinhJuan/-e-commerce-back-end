@@ -46,6 +46,7 @@ dependencies {
     runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.2'
     // https://mvnrepository.com/artifact/com.auth0/java-jwt
     implementation group: 'com.auth0', name: 'java-jwt', version: '3.19.2'
+    implementation 'org.springframework.data:spring-data-rest-webmvc:3.5.6'
 
 }
 

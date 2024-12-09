@@ -1,6 +1,5 @@
 package com.example.ecommerce.service.role;
 
-import com.example.ecommerce.repository.IProductRepo;
 import com.example.ecommerce.repository.IRoleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
