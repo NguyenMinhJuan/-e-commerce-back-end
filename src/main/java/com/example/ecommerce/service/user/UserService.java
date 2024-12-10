@@ -4,6 +4,7 @@ import com.example.ecommerce.model.User;
 import com.example.ecommerce.model.dto.UserPrinciple;
 import com.example.ecommerce.repository.IUserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,6 +19,10 @@ import java.util.Optional;
 public class UserService implements IUserService , UserDetailsService {
     @Autowired
     IUserRepo userRepo;
+
+    @Lazy
+    @Autowired
+    private PasswordEncoder passwordEncoder; //lỗi thi xoa doan nay di
 
     @Override
     public Iterable findAll() {
@@ -35,7 +40,9 @@ public class UserService implements IUserService , UserDetailsService {
 
     @Override
     public void save(Object o) {
-        userRepo.save((User) o);
+            User user = (User) o;
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            userRepo.save(user);
     }
 
     @Override
@@ -47,7 +54,6 @@ public class UserService implements IUserService , UserDetailsService {
     public User findByUsername(String username) {
         return userRepo.findByUsername(username);
     }
-
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

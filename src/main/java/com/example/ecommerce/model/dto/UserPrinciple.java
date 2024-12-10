@@ -28,7 +28,7 @@ public class UserPrinciple implements UserDetails {
     public static UserPrinciple build(User user) {
         List<GrantedAuthority> authorities = new ArrayList<>();
         for (Role role : user.getRoles()) {
-            authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
+            authorities.add(new SimpleGrantedAuthority(role.getRoleName().name()));
         }
         return new UserPrinciple(user.getUsername(), user.getPassword(), authorities);
     }
